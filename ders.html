@@ -18,18 +18,20 @@
     
     <script>
         let count = 0;
+        let opacity = Math.min(Math.abs(count) * 10, 100);
 
         const box = document.getElementById('box');
         const number = document.getElementById('number');
         
         function change(e){
             count += e;
+            let opacity = Math.min(Math.abs(count) * 10, 100);
             console.log(count);
             number.textContent = count;
             if(count > 0){
-                box.className="bg-red-200 text-white px-4 rounded font-bold text-center";
+                box.className=`bg-red-600/${opacity} text-white px-4 rounded font-bold text-center`;
             }else if(count < 0){
-             box.className = "bg-green-200 text-white px-4 rounded font-bold text-center";
+             box.className = `bg-green-600/${opacity} text-white px-4 rounded font-bold text-center`;
             }else{
                 box.className = "bg-white-200 p-8 rounded-xl shadow text-center transition-colors duration-300";
             }
